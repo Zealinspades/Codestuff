@@ -243,8 +243,8 @@ def DoBattle() :
             BattleOngoing = False
 
         else :
-            ## Something pretty fucky is afoot if you get outside 1-30 turns
-            DoBattleWrapper()
+            print ("Something pretty fucky is afoot if you get outside 1-30 turns")
+            quit()
 
 HeroSelectionScreen()
 hero, goblin = CustomizeHandler()
