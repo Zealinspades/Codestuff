@@ -245,7 +245,7 @@ def DoBattle() :
 
         else :
             print ("Something pretty fucky is afoot if you get outside 1-30 turns")
-            quit()
+            raise Exception()
 
 HeroSelectionScreen()
 hero, goblin = CustomizeHandler()
