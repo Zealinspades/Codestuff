@@ -168,7 +168,7 @@ def IsBattleOver(hero, goblin) :
     else :
         return False
     
-def FinalStats() :
+def FinalStats(hero, goblin) :
     print()
     print ("The results are:")
     print (f"Hero's HP: {hero.FetchHP()}")
@@ -185,6 +185,7 @@ def DoBattleWrapper() :
     while True :
         try:
             DoBattle()
+               break
         except Exception:
             ErrorCount += 1
             print("An error has been logged while trying to do battle.")
@@ -222,7 +223,7 @@ def DoBattle() :
         elif CurrentTurn == 1:
             print ("╒══ The battle joins, to the victor the spoils! ══╕ ")
 
-        elif (CurrentTurn > 1) and (CurrentTurn < 30) :
+        elif 1 < CurrentTurn < 30 :
             EnemyAttack(hero, goblin)
             HeroAttack(hero, goblin)
             print()
