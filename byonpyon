@@ -52,7 +52,7 @@ class ByonPyonGame :
 if __name__ == "__main__":
     game = ByonPyonGame()
     game.bunIncoming()
-    #do the bunIncoming thing as it's now the property of the game class
+    #do the bunIncoming thing as it's now an instance of the game class
 
 
 ## Things learned
