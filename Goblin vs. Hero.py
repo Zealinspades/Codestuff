@@ -252,3 +252,4 @@ hero, goblin = CustomizeHandler()
 InitErrorCount()        
 DoBattleWrapper()
 
+# test commit
