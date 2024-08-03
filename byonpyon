@@ -1,0 +1,64 @@
+import random
+
+class Inuktitut :
+    #manages byon/pyon count and overload conditions
+    def __init__ (self, byonCount = 0, pyonCount = 0) :
+        #initializes the byon/pyoncount to 0 and self weirdness
+
+        self.byonCount = byonCount
+        self.pyonCount = pyonCount
+    
+    def byonMoment(self) :
+        self.byonCount += 1
+        print ("Inu byons!")
+    
+    def pyonMoment(self) : 
+        self.pyonCount += 1
+        print ("Inu pyons!")
+
+    def checkBunOverload(self) :
+        if self.pyonCount >= 10 :
+            print (f"Too much pyon!!!  {self.pyonCount} pyons?? Are you kidding??")
+            return True
+        if self.byonCount >= 10 :
+            print (f"Too much byon!!!  {self.byonCount} byons?? Are you kidding??")
+            return True
+        return False
+    
+class ByonPyonGame :
+    def __init__(self) :
+        self.inu = Inuktitut() 
+        self.bunnyStateUnknown = True
+    
+    def playRound (self) :
+        byonOrPyon = random.randrange (1,3)
+        if byonOrPyon == 1 :
+            self.inu.byonMoment()
+        elif byonOrPyon == 2 :
+            self.inu.pyonMoment()
+        return self.inu.checkBunOverload()
+            #This one is weird. It's checking the property of the property of the ByonPyonclass to
+            #it's created instance of Inuktitut
+    
+    def bunIncoming(self) :
+        print ("Oh shit Inu's here!")
+
+        while self.bunnyStateUnknown :
+            if self.playRound() :
+                self.bunnyStateUnknown = False
+        
+        print ("Better calm them down with a carrot...")
+
+if __name__ == "__main__":
+    game = ByonPyonGame()
+    game.bunIncoming()
+    #do the bunIncoming thing as it's now the property of the game class
+
+
+## Things learned
+# storing fstrings as variables
+# learned __name__ and __main__
+#   done to force the program only to work as the main program of something called a 'module'
+#   this is useful to make the program only run the script if it's not part of another script
+# You can just do terminating statements at the end of if statements instead of using else
+# Can define variables in arguments? Why??
