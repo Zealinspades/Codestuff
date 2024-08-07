@@ -22,13 +22,13 @@ class Deck:
     def FetchCardID(self):
         return self.CardID
 
-    def IsDrawn(self):
+    def FetchIsDrawn(self):
         return self.IsDrawn
 
-    def OwnedBy(self):
+    def FetchOwnedBy(self):
         return self.CardOwnedBy
 
-    def IsInPlay(self):
+    def FetchIsInPlay(self):
         return self.InPlay
 
     #This is intended to intialize the Deck class variables
