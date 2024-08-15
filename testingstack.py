@@ -70,60 +70,230 @@ for num in my_iterable:
 
 # Iterate over the instance
 '''
-# Define the card numbers and suits
-InitCardNum = [str(i) for i in range(1, 11)] + ['Jack', 'Queen', 'King', 'Ace']
-InitCardSuit = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+'''
+import random as r
 
-def EstablishCardHierarchy():
-    """
-    Establish and return card numeric and suit hierarchies.
-    """
-    TempCardNumValue = {num: i + 1 for i, num in enumerate(InitCardNum)}
-    TempCardSuitValue = {suit: i + 1 for i, suit in enumerate(InitCardSuit)}
-    
-    return TempCardNumValue, TempCardSuitValue
+x = (f"{r.randrange(1,3)}")
+print (x)
 
-def SimpleEvaluateCards(Card1, Card2):
-    """
-    Compare two cards based on their numeric values for face and suit.
-    
-    Parameters:
-    Card1 (tuple): A tuple where Card1[0] is the card number and Card1[1] is the card suit.
-    Card2 (tuple): A tuple where Card2[0] is the card number and Card2[1] is the card suit.
-    
-    Returns:
-    int: Returns 1 if Card1 is better, -1 if Card2 is better, and 0 if they are equal.
-    """
-    # Get hierarchies
-    CardNumHierarchy, CardSuitHierarchy = EstablishCardHierarchy()  #!!! 
-    
-    # Extract card values
-    Num1, Suit1 = Card1
-    Num2, Suit2 = Card2
-    
-    # Compare suits first
-    if CardSuitHierarchy[Suit1] > CardSuitHierarchy[Suit2]:  #!!! 
-        return 1
-    elif CardSuitHierarchy[Suit1] < CardSuitHierarchy[Suit2]:  #!!! 
-        return -1
-    else:
-        # Suits are the same, compare numbers
-        if CardNumHierarchy[Num1] > CardNumHierarchy[Num2]:  #!!! 
-            return 1
-        elif CardNumHierarchy[Num1] < CardNumHierarchy[Num2]:  #!!! 
-            return -1
-        else:
-            return 0
 
-# Example usage
-Card1 = ('Queen', 'Hearts')
-Card2 = ('King', 'Diamonds')
 
-result = SimpleEvaluateCards(Card1, Card2)
+class Person:
+    name = "John"
+    age = 36
 
-if result == 1:
-    print(f"{Card1} is better than {Card2}")
-elif result == -1:
-    print(f"{Card2} is better than {Card1}")
-else:
-    print(f"{Card1} and {Card2} are equal")
+# a class has variables that can be called on an instance of that class
+# a class is simply a blueprint/template for objects - it does not hold any data
+# or perform any action until you create an instance of it, like below.
+
+
+p1 = Person()
+# Instantiation - Person() creates a new instance (object) of the 'Person' class called p1,
+# creating a new object in memory which is of the type 'Person'.
+# The newly created 'Person' object is assigned to the variable 'p1'. So 'p1' now refers to
+# this unique instance of the 'Person' class.
+
+# This allows you to access the properties (attributes) and methods (functions) defined in
+# the 'Person' class. For instance, accessing the 'name' attribute through the 'p1' object.
+
+print (p1.name)
+
+# The print function calls the contents of the brackets
+# The contents refer to the 'p1' instance instantiated by the previous line.
+# p1 will refer to the class to see if it has a property/attribute called 'name'
+# the attribute 'name' is returned to the print function.
+
+# Definition: Instantiation is the process of creating an actual instance (or object) of a 
+# class in object oriented programming (OOP)
+
+i = 0
+
+while i < 9 :
+    i += 1
+    if i == 3 :
+        continue
+        # skip the remainder of the closest level loop it's contained in, which is while
+        # does not print 3 as it points back at the while i < 9 instead of proceeding.
+    print(i)
+
+# In Python, everything is an object
+'''
+'''
+class MyClass:
+  name = "John"
+
+del MyClass
+
+# del deletes an object, so print returns a NameError.
+
+print(MyClass) 
+'''
+'''
+x = ['apple', 'banana', 'cherry']
+del x[0]
+#delete the item held at the 0 index of the x list
+print (x)
+# 'banana', 'cherry'
+
+x = "hello"
+
+try:
+  x > 3
+except NameError:
+  print("You have a variable that is not defined.")
+except TypeError:
+  print("You are comparing values of different type") 
+
+# except stops a program crashing under stuff like TypeError, NameError, or specific circumstances
+# you can outline within the code.
+'''
+'''
+try:
+  x = 1/0
+except NameError:
+  print("You have a variable that is not defined.")
+except TypeError:
+  print("You are comparing values of different type")
+except ZeroDivisionError:
+    print ("You're dividing by zero, buddy.")
+except:
+  print("Something else went wrong") 
+finally : 
+    print ("This will execute regardless of any exceptions or if the code works"
+           "as it is a 'finally' block of code")
+
+# except without params will simply catch any exception, while naming exceptions will only catch it
+# in specific circumstances.
+# finally is useful to close or delete objects or clean up resources.
+'''
+'''
+from datetime import time
+x = time(hour=15)
+print (x)
+# only import the 'time' section from the datetime module
+# this can make your program more readable, speed up import times and memory, improve readability
+# this code would otherwise be x = time(datetime.time(hour=15))
+# when only specific components are imported, it's easier to change or replace them as you know
+# exactly which parts of the module are being used. Try to always do this where possible, which
+# means you should understand sections of imports.
+'''
+'''
+#create a function:
+def myfunction():
+  global x
+  x = "hello"
+
+#execute the function:
+myfunction()
+
+#x should now be global, and accessible in the global scope.
+print(x)
+
+# global allows you to use variables from inside functions, outside functions.
+'''
+'''
+# if is a conditional that allows you to execute a block of code only if a condition is True.
+# if ... in x is testing if ... is contained within a list, range, string, etc or
+# to iterate through a loop, such as 'for x in <list>', which will go through the list from 0-1-2 etc
+
+x = ["apple", "banana", "cherry"]
+
+y = ["apple", "banana", "cherry"]
+
+print(x is y) 
+
+# is tests if two variables refer to the same object - it returns true if they are the same object.
+# in this case, these variables hold identical information, but are different objects, and
+# so it returns false.
+
+class dork():
+   name = 'John'
+
+dork1 = dork
+dork2 = dork
+
+print (dork1 is dork2)
+
+#this prints true as dork1 and dork2 refer to the same object, which is the dork class
+
+
+x = lambda a, b, c : a + b + c
+
+print(x(5, 6, 2)) 
+
+
+#this is equivalent to:
+
+def addFunction(x, y, z) :
+    return x+y+z
+
+print (addFunction(3,10,7))
+
+def myfunc1():
+  x = "John"
+  def myfunc2():
+    nonlocal x
+    x = "hello"
+  myfunc2()
+  return x
+
+print(myfunc1()) 
+
+# pass is used to create a placeholder for future code- does nothing, but doesn't cause an error
+
+# yield can be used to return things to a function without ending the function
+
+def myFunc():
+  yield "Hello"
+  yield 51
+  yield "Good Bye"
+
+x = myFunc()
+
+for z in x:
+  print(z) 
+'''
+
+print (abs(-15)) # returns how far the number is from the origin of the number line
+
+x = ['Potato', 1, 0]
+print (all(x)) #returns true if all items in an iterable are true (False)
+
+x = ['Potato', 1, 0]
+print (any(x)) #returns true if any itmes in an iterable are true (True)
+
+print (ascii("My name is Ståle")) # My name is St\xe5le - converts illegal to escape characters
+
+print (bin(100)) #returns the binary value of a number (0b1100100)
+
+# bytearray(x, encoding, error)
+
+print (bytearray(4)) # bytearray(b'\x00\x00\x00\x00') is returned as the bytearray of 4
+# optional additional params are bytearray (value, encoding, error)
+# encoding - etc. UTF-16, ASCII, UCS-2
+# error - how to handle an exception
+
+print (bytes(4)) # b'\x00\x00\x00\x00' is returned as the bytes object of 4
+# optional additional params are bytearray (value, encoding, error)
+# encoding - etc. UTF-16, ASCII, UCS-2
+# error - how to handle an exception
+
+def x() :
+    a = 5
+
+print (callable(x)) #True
+# returns true if the specified object is callable, otherwise it returns false.
+
+print (chr(63)) # ?
+# chr prints a unicode character according to the integer value passed to it (0 - 1,114,111)
+'''
+print(chr(-1000))
+print(chr(1114113))
+print(chr('Ronald'))
+# these are all TypeError, either the wrong type or out of range for a unicode value
+'''
+# compile(source, filename, mode, flag, dont_inherit, optimize) 
+
+x = compile('print(55)', 'test', 'eval')
+exec(x) 
+
