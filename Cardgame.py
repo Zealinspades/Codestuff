@@ -4,6 +4,8 @@
 
 import random
 
+#make the deck a set - one of each thing in that list
+
 class Deck:
     def __init__(self, CardNum, CardSuit, CardID, IsDrawn, CardOwnedBy, InPlay):
         self.CardNum = CardNum
@@ -22,13 +24,13 @@ class Deck:
     def FetchCardID(self):
         return self.CardID
 
-    def FetchIsDrawn(self):
-        return self.IsDrawn
+    def IsDrawn(self):
+        return self.Drawn
 
-    def FetchOwnedBy(self):
+    def OwnedBy(self):
         return self.CardOwnedBy
 
-    def FetchIsInPlay(self):
+    def IsInPlay(self):
         return self.InPlay
 
     #This is intended to intialize the Deck class variables
