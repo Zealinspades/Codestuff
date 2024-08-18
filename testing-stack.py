@@ -253,7 +253,7 @@ x = myFunc()
 for z in x:
   print(z) 
 '''
-
+'''
 print (abs(-15)) # returns how far the number is from the origin of the number line
 
 x = ['Potato', 1, 0]
@@ -286,14 +286,26 @@ print (callable(x)) #True
 
 print (chr(63)) # ?
 # chr prints a unicode character according to the integer value passed to it (0 - 1,114,111)
-'''
+
+
 print(chr(-1000))
 print(chr(1114113))
 print(chr('Ronald'))
 # these are all TypeError, either the wrong type or out of range for a unicode value
-'''
+
+
 # compile(source, filename, mode, flag, dont_inherit, optimize) 
 
 x = compile('print(55)', 'test', 'eval')
 exec(x) 
+'''
+from random import randrange
 
+def intFunc () :
+    x = randrange(1,3)
+    if x == 1 :
+        return "You lose!"
+    if x == 2 :
+        return 1
+    
+print (intFunc())
